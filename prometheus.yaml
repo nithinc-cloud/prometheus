@@ -32,11 +32,11 @@ scrape_configs:
     # Optional TLS configuration; see https://prometheus.io/docs/operating/configuration/#<tls_config>
     #tls_config:
     static_configs:
-      - targets: ['appz-nithinc.lowtouchcloud.io/logs.alpha-dev/']
+      - targets: ['appz-nithinc.lowtouchcloud.io:443/logs.alpha-dev/']
       
   - job_name: 'node-exporter'
     static_configs:
-    - targets: ['10.0.1.80:9090','10.0.2.185:30227']
+    - targets: ['10.0.1.80:9090','10.0.2.185:9100']
     metric_relabel_configs:
       - source_labels: ['nodename']
         regex: '(engine.master)'
