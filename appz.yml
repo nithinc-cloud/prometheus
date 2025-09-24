@@ -11,7 +11,7 @@ build:
     image_template: prometheus-2.45
 
 deploy:
-    context: nithinc-cloud/DEV
+    context: alpha-dev/DEV
     type: statefulset
     replicas: 1
     port:
@@ -26,5 +26,5 @@ volumes:
     
   
 properties:
-    revision : 98
+    revision : 99
     
