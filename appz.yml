@@ -5,13 +5,13 @@ app:
 
 build:
     version: 3.0
-    env: DEV
+    env: POC
     build_file: none
     output_files: output/*.zip
     image_template: prometheus-3.4
 
 deploy:
-    context: alpha-dev/DEV
+    context: muthoot/POC
     type: statefulset
     replicas: 1
     port:
