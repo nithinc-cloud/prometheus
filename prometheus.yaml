@@ -36,16 +36,18 @@ scrape_configs:
       
   - job_name: 'node-exporter'
     static_configs:
-      - targets: ['10.0.14.247:9100', '10.1.194.128:9100']
-    metric_relabel_configs:
-      - source_labels: ['nodename']
-        regex: '^engine-master$'
+      - targets:
+          - 10.0.14.247:9100
+          - 10.1.194.128:9100
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: 10.0.14.247:9100
         target_label: nodename
-        replacement: appz-engine-master
-      - source_labels: ['nodename']
-        regex: '^k8s-worker-node-(.*)$'
+        replacement: engine-master
+      - source_labels: [__address__]
+        regex: 10.1.194.128:9100
         target_label: nodename
-        replacement: appz-dev-worker-${1}
+        replacement: k8s-worker-node-0
   - job_name: 'kube-state-metrics'
     static_configs:
     - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
