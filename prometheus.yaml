@@ -42,7 +42,6 @@ scrape_configs:
     regex: '^engine-master$'
     target_label: nodename
     replacement: appz-engine-master
-
   - source_labels: ['nodename']
     regex: '^k8s-worker-node-(.*)$'
     target_label: nodename
