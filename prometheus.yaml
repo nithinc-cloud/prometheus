@@ -39,11 +39,11 @@ scrape_configs:
       - targets: ['10.0.14.247:9100', '10.1.194.128:9100']
     metric_relabel_configs:
       - source_labels: ['nodename']
-        regex: '(engine.master)'
+        regex: '^engine-master$'
         target_label: nodename
-        replacement: appz-${1}
+        replacement: appz-engine-master
       - source_labels: ['nodename']
-        regex: 'k8s.worker.node.(.*)'
+        regex: '^k8s-worker-node-(.*)$'
         target_label: nodename
         replacement: appz-dev-worker-${1}
   - job_name: 'kube-state-metrics'
