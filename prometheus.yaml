@@ -33,7 +33,6 @@ scrape_configs:
     #tls_config:
    # static_configs:
     #  - targets: ['appz-nithinc.lowtouchcloud.io:443/logs.alpha-dev/']
-      
   - job_name: 'node-exporter'
     static_configs:
       - targets:
