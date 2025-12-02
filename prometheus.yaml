@@ -43,9 +43,9 @@ scrape_configs:
         target_label: nodename
         replacement: appz-${1}
       - source_labels: ['nodename']
-        regex: 'k8s.(.*)'
+        regex: 'k8s.worker.node.(.*)'
         target_label: nodename
-        replacement: appz-${1}
+        replacement: appz-dev-worker-${1}
   - job_name: 'kube-state-metrics'
     static_configs:
     - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
