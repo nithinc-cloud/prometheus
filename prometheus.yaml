@@ -37,7 +37,8 @@ scrape_configs:
     static_configs:
       - targets:
           - 10.0.14.116:9100
-          - 10.1.194.130:9100
+          - 10.0.150.244:9100
+          - 10.0.151.183:9100
     relabel_configs:
       - source_labels: [__address__]
         regex: 10.0.14.116:9100
