@@ -44,9 +44,13 @@ scrape_configs:
         target_label: nodename
         replacement: engine-master
       - source_labels: [__address__]
-        regex: 10.1.194.130:9100
+        regex: 10.0.150.244:9100
         target_label: nodename
         replacement: k8s-worker-node-0
+      - source_labels: [__address__]
+        regex: 10.0.151.183:9100
+        target_label: nodename
+        replacement: k8s-worker-node-1
   - job_name: 'kube-state-metrics'
     static_configs:
     - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
